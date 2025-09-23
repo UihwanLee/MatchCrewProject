@@ -9,10 +9,12 @@ using UnityEngine.UI;
 public class FailTextAnim : MonoBehaviour
 {
     [SerializeField] private Text[] letters;
+
     [SerializeField] private float baseDelay = 0.1f;
     [SerializeField] private float randomDelay = 0.05f;
     [SerializeField] private float fadeDuration = 1.5f;
     [SerializeField] private float moveDistance = 2.0f;
+    [SerializeField] private float rotationAngle = 10.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +38,7 @@ public class FailTextAnim : MonoBehaviour
 
         RectTransform rectTransform = letter.GetComponent<RectTransform>();
         Color orginColor = letter.color;
+        rectTransform.localRotation = Quaternion.identity;
 
         // 처음에는 투명하게 세팅
         letter.color = new Color(orginColor.r, orginColor.g, orginColor.b, 0f);
@@ -53,6 +56,10 @@ public class FailTextAnim : MonoBehaviour
 
             // 투명도 증가
             letter.color = new Color(orginColor.r, orginColor.g, orginColor.b, alpha);
+
+            // 글자 회전
+            float rot = Mathf.Lerp(0f, rotationAngle, alpha);
+            rectTransform.localRotation = Quaternion.Euler(0f, 0f, rot);
 
             // 위치 조정
             rectTransform.anchoredPosition = Vector2.Lerp(startPos, endPos, alpha);
