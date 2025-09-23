@@ -8,8 +8,10 @@ using UnityEngine.UI;
 /// </summary>
 public class FailTextAnim : MonoBehaviour
 {
+    [Header("Letter Setting")]
     [SerializeField] private Text[] letters;
 
+    [Header("Animation Setting")]
     [SerializeField] private float baseDelay = 0.1f;
     [SerializeField] private float randomDelay = 0.05f;
     [SerializeField] private float fadeDuration = 1.5f;
