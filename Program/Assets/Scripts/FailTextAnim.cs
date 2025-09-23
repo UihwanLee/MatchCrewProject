@@ -10,14 +10,14 @@ using UnityEngine.UI;
 public class FailTextAnim : MonoBehaviour
 {
     [Header("Letter Setting")]
-    [SerializeField] private Image[] letters;
+    public Image[] letters;
 
     [Header("Animation Setting")]
-    [SerializeField] private float baseDelay = 0.1f;
-    [SerializeField] private float randomDelay = 0.05f;
-    [SerializeField] private float fadeDuration = 0.8f;
-    [SerializeField] private float moveDistance = 60f;
-    [SerializeField] private float rotationAngle = 10.0f;
+    public float baseDelay = 0.1f;
+    public float randomDelay = 0.05f;
+    public float fadeDuration = 0.8f;
+    public float moveDistance = 60f;
+    public float rotationAngle = 10.0f;
 
     // Start is called before the first frame update
     void Start()
