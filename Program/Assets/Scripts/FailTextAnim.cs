@@ -16,42 +16,42 @@ public class FailTextAnim : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(PlayFailAnimation());
+        // 코루틴을 사용하여 한 글자 씩 내려가는 연출 구현
+        for(int i=0; i<letters.Length; i++)
+        {
+            StartCoroutine(PlayFailAnimation(letters[i], i * delay));
+        }
     }
 
-    private IEnumerator PlayFailAnimation()
+    private IEnumerator PlayFailAnimation(Text letter, float delay)
     {
-        // 코루틴을 사용하여 한 글자 씩 내려가는 연출 구현
-        foreach(var letter in letters)
+        // 초반 딜레이 시작
+        yield return new WaitForSeconds(delay);
+
+        RectTransform rectTransform = letter.GetComponent<RectTransform>();
+        Color orginColor = letter.color;
+
+        // 처음에는 투명하게 세팅
+        letter.color = new Color(orginColor.r, orginColor.g, orginColor.b, 0f);
+        rectTransform.anchoredPosition += new Vector2(0f, moveDistance);
+
+        // 시간에 따른 투명도 조정
+        float elapsed = 0f;
+        Vector2 startPos = rectTransform.anchoredPosition;
+        Vector2 endPos = startPos - new Vector2(0f, moveDistance);
+
+        while (elapsed < fadeDuration)
         {
-            RectTransform rectTransform = letter.GetComponent<RectTransform>();
-            Color orginColor = letter.color;
+            elapsed += Time.deltaTime;
+            float alpha = Mathf.Clamp01(elapsed / fadeDuration);
 
-            // 처음에는 투명하게 세팅
-            letter.color = new Color(orginColor.r, orginColor.g, orginColor.b, 0f);
-            rectTransform.anchoredPosition += new Vector2(0f, moveDistance);
+            // 투명도 증가
+            letter.color = new Color(orginColor.r, orginColor.g, orginColor.b, alpha);
 
-            // 시간에 따른 투명도 조정
-            float elapsed = 0f;
-            Vector2 startPos = rectTransform.anchoredPosition;
-            Vector2 endPos = startPos - new Vector2(0f, moveDistance);
+            // 위치 조정
+            rectTransform.anchoredPosition = Vector2.Lerp(startPos, endPos, alpha);
 
-            while(elapsed < fadeDuration)
-            {
-                elapsed += Time.deltaTime;
-                float alpha = Mathf.Clamp01(elapsed / fadeDuration);
-
-                // 투명도 증가
-                letter.color = new Color(orginColor.r, orginColor.g, orginColor.b, alpha);
-
-                // 위치 조정
-                rectTransform.anchoredPosition = Vector2.Lerp(startPos, endPos, alpha);
-
-                yield return null;
-            }
-
-            // 다음 글자는 일정 시간 후 등장
-            yield return new WaitForSeconds(delay);
+            yield return null;
         }
     }
 }
