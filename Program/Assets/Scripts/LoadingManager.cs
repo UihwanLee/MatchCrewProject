@@ -63,6 +63,8 @@ public class LoadingManager : MonoBehaviour
 
             yield return null;
         }
+
+        if(loadingScene != null) loadingScene.SetActive(false);
     }
 
 }
