@@ -243,8 +243,12 @@ MonoBehaviour:
   detailPanel: {fileID: 2012164520}
   gridParent: {fileID: 1772928935}
   thumbnailPrefab: {fileID: 5007031372758233290, guid: 64a58e733fd18d84090c731545e22851, type: 3}
-  photos: []
-  descriptions: []
+  photos:
+  - {fileID: 21300000, guid: baa6f967a85f81b4fa26124f11fb3ac8, type: 3}
+  - {fileID: 21300000, guid: 8b4d03be43810f945b12b7d94115aa61, type: 3}
+  descriptions:
+  - "\uC124\uBA85 1"
+  - "\uC124\uBA85 2"
   itemsPerPage: 6
   detailImage: {fileID: 1978389109}
   detailText: {fileID: 1163857153}
@@ -422,7 +426,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 993307953}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 283332135}
+        m_TargetAssemblyTypeName: GalleryManager, Assembly-CSharp
+        m_MethodName: CloseDetail
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &993307953
 MonoBehaviour:
   m_ObjectHideFlags: 0
