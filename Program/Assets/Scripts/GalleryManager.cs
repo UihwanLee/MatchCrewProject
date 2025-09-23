@@ -4,11 +4,11 @@ using System.Collections.Generic;
 
 public class GalleryManager : MonoBehaviour
 {
-    [Header("Panels")]
+    [Header("Panels")]                      //패널들 헤더
     public GameObject galleryPanel;       //갤러리 패널
     public GameObject detailPanel;        //Explain 패널
 
-    [Header("Gallery")]
+    [Header("Gallery")]                     //갤러리 헤더
     public Transform gridParent;          // 사진 배열에 붙는거
     public GameObject thumbnailPrefab;    // 썸네일 버튼 프리팹
     public List<Sprite> photos;           // 사진 목록
@@ -16,7 +16,7 @@ public class GalleryManager : MonoBehaviour
     public int itemsPerPage = 6;          // 3x2 구조 = 6개
     private int currentPage = 0;
 
-    [Header("Detail View")]
+    [Header("Detail View")]                 // Explain 헤더
     public Image detailImage;
     public Text detailText;
 
@@ -27,14 +27,14 @@ public class GalleryManager : MonoBehaviour
 
     public void ShowPage(int page)
     {
-        // 기존 썸네일 지우기
+        // 기존 사진 지우기
         foreach (Transform child in gridParent)
             Destroy(child.gameObject);
 
         currentPage = page;
         int startIndex = page * itemsPerPage;
 
-        // 새 썸네일 생성
+        // 새 사진 생성
         for (int i = 0; i < itemsPerPage; i++)
         {
             int photoIndex = startIndex + i;
