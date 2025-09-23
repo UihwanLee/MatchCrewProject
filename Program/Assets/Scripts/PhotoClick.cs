@@ -8,15 +8,15 @@ using UnityEngine.UI;
 public class PhotoClick : MonoBehaviour
 {
 
-    public GameObject card;
+    public GameObject PhotoCard;
     public int photo_num;
 
 
     public void click()
     {
         
-         card.gameObject.SetActive(true);
-         card.GetComponent<Card>().Card_Rendering(photo_num);
+         PhotoCard.gameObject.SetActive(true);
+        PhotoCard.GetComponent<PhotoCard>().Card_Rendering(photo_num);
         
     }
 }
