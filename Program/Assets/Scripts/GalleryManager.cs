@@ -4,49 +4,47 @@ using System.Collections.Generic;
 
 public class GalleryManager : MonoBehaviour
 {
-    [Header("Panels")]                      //패널들 헤더
-    public GameObject galleryPanel;       //갤러리 패널
-    public GameObject detailPanel;        //Explain 패널
+    public GameObject galleryPanel;
+    public GameObject detailPanel;
 
-    [Header("Gallery")]                     //갤러리 헤더
-    public Transform gridParent;          // 사진 배열에 붙는거
-    public GameObject thumbnailPrefab;    // 썸네일 버튼 프리팹
+    public Transform gridParent;          // GridLayoutGroup
+    public GameObject thumbnailPrefab;    // 썸네일 버튼
     public List<Sprite> photos;           // 사진 목록
     public List<string> descriptions;     // 사진 설명
-    public int itemsPerPage = 6;          // 3x2 구조 = 6개
-    private int currentPage = 0;
 
-    [Header("Detail View")]                 // Explain 헤더
+    private int currentPage = 0;
+    private int itemsPerPage = 6;         // 2열 x 3행 = 6장
+
     public Image detailImage;
     public Text detailText;
 
     void Start()
     {
-        ShowPage(0); // 첫 페이지 보여주기
+        ShowPage(0);  // 시작하면 첫 페이지 보여줌
     }
 
     public void ShowPage(int page)
     {
-        // 기존 사진 지우기
+        // 기존 썸네일 지우기
         foreach (Transform child in gridParent)
             Destroy(child.gameObject);
 
         currentPage = page;
         int startIndex = page * itemsPerPage;
 
-        // 새 사진 생성
+        // 새 썸네일 생성
         for (int i = 0; i < itemsPerPage; i++)
         {
-            int photoIndex = startIndex + i;
-            if (photoIndex >= photos.Count) break;
+            int idx = startIndex + i;
+            if (idx >= photos.Count) break;
 
             GameObject thumb = Instantiate(thumbnailPrefab, gridParent);
-            thumb.GetComponent<Image>().sprite = photos[photoIndex];
+            thumb.GetComponent<Image>().sprite = photos[idx];
 
-            int index = photoIndex; // 캡처용 지역 변수
+            int captured = idx; // 클릭 시 참조할 인덱스
             thumb.GetComponent<Button>().onClick.AddListener(() =>
             {
-                ShowDetail(index);
+                ShowDetail(captured);
             });
         }
     }
