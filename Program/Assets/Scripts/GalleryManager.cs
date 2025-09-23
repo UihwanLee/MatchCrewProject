@@ -5,11 +5,11 @@ using System.Collections.Generic;
 public class GalleryManager : MonoBehaviour
 {
     [Header("Panels")]
-    public GameObject galleryPanel;
-    public GameObject detailPanel;
+    public GameObject galleryPanel;       //갤러리 패널
+    public GameObject detailPanel;        //Explain 패널
 
     [Header("Gallery")]
-    public Transform gridParent;          // GridLayoutGroup 붙은 오브젝트
+    public Transform gridParent;          // 사진 배열에 붙는거
     public GameObject thumbnailPrefab;    // 썸네일 버튼 프리팹
     public List<Sprite> photos;           // 사진 목록
     public List<string> descriptions;     // 사진 설명
