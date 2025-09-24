@@ -15,12 +15,11 @@ public class Card : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+    
     }
 
     public void Setting(int number)
     {
-        front.sprite = Resources.Load<Sprite>($"Card_Gayeong");
-
+    front.sprite = Resources.Load<Sprite>(number % 2 == 0 ? "Card_Gayeong" : "Card_LeeHwan");
     }
 }
