@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TouchScreenBtn : MonoBehaviour
+public class TouochScreenBtn : MonoBehaviour
 {
-    // Start is called before the first frame update
-public void TouchScreen()
+    public void TouchScreen()
     {
         SceneManager.LoadScene("StartScene");
     }

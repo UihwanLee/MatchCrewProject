@@ -5,13 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class PushBtn : MonoBehaviour
 {
-public void StartGame()
+    public void StartGame()
     {
-        SceneManager.LoadScene("GameStart");
+        LoadingManager.Instance.LoadScene("MainScene");
     }
     public void Gallery()
     {
-        SceneManager.LoadScene("GalleryScene");
+        LoadingManager.Instance.LoadScene("GalleryScene");
     }
     public void Exit()
     {
