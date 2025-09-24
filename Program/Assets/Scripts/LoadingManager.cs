@@ -24,6 +24,8 @@ public class LoadingManager : MonoBehaviour
     public float slideSpeed = 100.0f;               // 슬라이드 속도
     private float endPosX = -540f;                  // 끝점
     private float offset = 2700f;                   // offset
+    private float offset_dist = 540f;               // 슬라이드 사이 거리
+    private float pos_y = 793f;                     // y축 위치
 
     private void Awake()
     {
@@ -57,6 +59,9 @@ public class LoadingManager : MonoBehaviour
         for (int i = 0; i < polaroidCanvasList.Length; i++)
         {
             polaroidCanvasList[i].sprite = polaroidSprites[i];
+
+            // 위치 세팅
+            polaroidCanvasList[i].gameObject.transform.position = new Vector3(i * offset_dist, pos_y, 0f);
         }
     }
 
@@ -134,6 +139,6 @@ public class LoadingManager : MonoBehaviour
         }
 
         // 로딩 다 끝나면 로딩 화면 비활성화
-        if(loadingScene != null) loadingScene.SetActive(false);
+        //if(loadingScene != null) loadingScene.SetActive(false);
     }
 }
