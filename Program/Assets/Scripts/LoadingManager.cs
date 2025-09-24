@@ -55,7 +55,7 @@ public class LoadingManager : MonoBehaviour
         if (polaroidSprites == null) return;
 
         // 인덱스 맞추기
-        spriteIndex = spriteIndex % polaroidSprites.Length;
+        spriteIndex = (spriteIndex == 0) ? 0 : spriteIndex % polaroidSprites.Length;
 
         // 폴라로이드 사진 변경
         polaroidImage.sprite = polaroidSprites[spriteIndex];
