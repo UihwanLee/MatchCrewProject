@@ -6,7 +6,7 @@ public class Option : MonoBehaviour
 {
      public GameObject option;
 
-     AudioSource audioSource;
+     //AudioSource audioSource;
 
      public void OpenOption()
      {

@@ -10,17 +10,17 @@ using UnityEngine.UI;
 public class FailTextAnim : MonoBehaviour
 {
     [Header("Letter Setting")]
-    public Image[] letters;
+    public Image[] letters;                     // 실패 문구
 
     [Header("Animation Setting")]
-    public float baseDelay = 0.1f;
-    public float randomDelay = 0.05f;
-    public float fadeDuration = 0.8f;
-    public float moveDistance = 60f;
-    public float rotationAngle = 10.0f;
+    public float baseDelay = 0.1f;              // 기본 딜레이
+    public float randomDelay = 0.05f;           // 랜덤 딜레이
+    public float fadeDuration = 0.8f;           // 연출 시간
+    public float moveDistance = 60f;            // 내려오는 거리
+    public float rotationAngle = 10.0f;         // 회전 각도
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         float delay = 0f;
 
