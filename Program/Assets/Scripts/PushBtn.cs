@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PushBtn : MonoBehaviour
 {
-public void StartGame()
+    public void StartGame()
     {
         SceneManager.LoadScene("GameStart");
     }
