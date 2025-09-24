@@ -14,13 +14,13 @@ public class LoadingManager : MonoBehaviour
     public Slider progressBar;                      // 로딩 진행 바
     public Text progressText;                       // 로딩 퍼센트
     public Text noticeLoadingText;                  // 로딩중 텍스트
-    public Image loadingImg;                        // 폴라로이드 이미지
+    public Image polaroidImage;                     // 폴라로이드 이미지
 
     [Header("Team List")]
-    public Sprite[] teamList;                        // 폴라로이드 사진 리스트
+    public Sprite[] polaroidSprites;                // 폴라로이드 사진 리스트
 
-    private bool isLoading;
-    private int listIdx;                             // 리스트 인덱스
+    private bool isLoading;                         // 로딩 확인 변수
+    private int spriteIndex;                        // 리스트 인덱스
 
 
     private void Awake()
@@ -44,28 +44,27 @@ public class LoadingManager : MonoBehaviour
         loadingScene.SetActive(false);
 
         // 폴라로이드 변경 함수 Invoke
-        listIdx = 0;
+        spriteIndex = 0;
         InvokeRepeating("LoadingAnim", 0f, 1f);
     }
 
     // 폴라로이드 사진 슬라이드 애니메이션 플레이
-    public void ChangeSlideImage()
+    public void LoadingAnim()
     {
-        // 로딩중이 아닐 때는 애니메이션 플레이 X
-        //if (!isLoading) return;
-
         // 리스트 예외처리
-        if (teamList == null) return;
+        if (polaroidSprites == null) return;
 
-        listIdx = listIdx % teamList.Length;
+        // 인덱스 맞추기
+        spriteIndex = spriteIndex % polaroidSprites.Length;
 
         // 폴라로이드 사진 변경
-        loadingImg.sprite = teamList[listIdx];
+        polaroidImage.sprite = polaroidSprites[spriteIndex];
 
         // 로딩 텍스트 변경
-        noticeLoadingText.text = (listIdx % 2 == 0) ? "로딩중.." : "로딩중...";
+        noticeLoadingText.text = (spriteIndex % 2 == 0) ? "로딩중.." : "로딩중...";
 
-        listIdx++;
+        // 인덱스 증가
+        spriteIndex++;
     }
 
     // Scene 인덱스로 로딩
@@ -92,7 +91,7 @@ public class LoadingManager : MonoBehaviour
         if (loadingScene != null) loadingScene.SetActive(true);
 
         // 로딩 사진 셔플
-        teamList = teamList.OrderBy(x=>Random.Range(0, 3)).ToArray();
+        polaroidSprites = polaroidSprites.OrderBy(x=>Random.Range(0, 3)).ToArray();
 
         // 로딩 시작
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
