@@ -7,6 +7,6 @@ public class RetryButton : MonoBehaviour
 {
     public void Retry()
     {
-        SceneManager.LoadScene(1);
+        LoadingManager.Instance.LoadScene("StageFail");
     }
 }

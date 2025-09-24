@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,14 +10,14 @@ using UnityEngine.UI;
 public class FailTextAnim : MonoBehaviour
 {
     [Header("Letter Setting")]
-    [SerializeField] private Text[] letters;
+    public Image[] letters;
 
     [Header("Animation Setting")]
-    [SerializeField] private float baseDelay = 0.1f;
-    [SerializeField] private float randomDelay = 0.05f;
-    [SerializeField] private float fadeDuration = 1.5f;
-    [SerializeField] private float moveDistance = 2.0f;
-    [SerializeField] private float rotationAngle = 10.0f;
+    public float baseDelay = 0.1f;
+    public float randomDelay = 0.05f;
+    public float fadeDuration = 0.8f;
+    public float moveDistance = 60f;
+    public float rotationAngle = 10.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -26,30 +27,32 @@ public class FailTextAnim : MonoBehaviour
         // 코루틴을 사용하여 한 글자 씩 내려가는 연출 구현
         for(int i=0; i<letters.Length; i++)
         {
+            // 처음에는 투명하게 세팅
+            Color orginColor = letters[i].color;
+            letters[i].color = new Color(orginColor.r, orginColor.g, orginColor.b, 0f);
+            RectTransform rectTransform = letters[i].GetComponent<RectTransform>();
+            rectTransform.anchoredPosition += new Vector2(0f, moveDistance);
+            rectTransform.localRotation = Quaternion.identity;
+
             float temp = baseDelay + Random.Range(0f, randomDelay);
             delay += temp;
 
-            StartCoroutine(PlayFailAnimation(letters[i], i * delay));
+            StartCoroutine(PlayFailAnimation(letters[i], i * delay, rectTransform, orginColor));
         }
     }
 
-    private IEnumerator PlayFailAnimation(Text letter, float delay)
+    private IEnumerator PlayFailAnimation(Image letter, float delay, RectTransform rectTransform, Color orginColor)
     {
         // 초반 딜레이 시작
         yield return new WaitForSeconds(delay);
 
-        RectTransform rectTransform = letter.GetComponent<RectTransform>();
-        Color orginColor = letter.color;
-        rectTransform.localRotation = Quaternion.identity;
-
-        // 처음에는 투명하게 세팅
-        letter.color = new Color(orginColor.r, orginColor.g, orginColor.b, 0f);
-        rectTransform.anchoredPosition += new Vector2(0f, moveDistance);
-
         // 시간에 따른 투명도 조정
         float elapsed = 0f;
         Vector2 startPos = rectTransform.anchoredPosition;
-        Vector2 endPos = startPos - new Vector2(0f, moveDistance);
+
+        // 기울인 위치에 따라 위치 조정
+        Vector2 rotatedOffset = Quaternion.Euler(0f, 0f, rotationAngle) * Vector2.down * moveDistance;
+        Vector2 endPos = startPos + rotatedOffset;
 
         while (elapsed < fadeDuration)
         {
