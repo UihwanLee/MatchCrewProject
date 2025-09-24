@@ -15,9 +15,9 @@ public class Option : MonoBehaviour
           option.SetActive(true);
 
           // test
-          audioSource = GetComponent<AudioSource>();
+          //audioSource = GetComponent<AudioSource>();
           // Set AudioClip Parameter in AudioSource Component
-          audioSource.PlayOneShot(audioSource.clip);
+          //audioSource.PlayOneShot(audioSource.clip);
      }
 
      public void CloseOption()
