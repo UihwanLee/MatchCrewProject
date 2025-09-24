@@ -94,13 +94,4 @@ public class BoardB : MonoBehaviour
 
           //GameManagerB.instance.SetCardCount(arr.Length);
      }
-
-     public void Click()
-     {
-          // if player clears stage
-          lev++;
-          GameManagerB.instance.SetLevel(lev);
-          //SceneManager.LoadScene($"Stage{lev}Scene");
-          SceneManager.LoadScene($"Stage2Scene");
-     }
 }
