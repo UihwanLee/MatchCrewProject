@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PhotoCard : MonoBehaviour
 {
-    public Animator animator;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -24,8 +24,6 @@ public class PhotoCard : MonoBehaviour
     public void Card_Rendering(int num)
     {
         gameObject.GetComponent<Image>().sprite =Resources.Load<Sprite>($"Card{num}");
-        animator.Play("Photo_Card");
         
     }
-    
 }

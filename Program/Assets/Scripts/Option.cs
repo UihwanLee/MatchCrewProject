@@ -13,11 +13,6 @@ public class Option : MonoBehaviour
           // if open option window, stop game
           Time.timeScale = 0.0f;
           option.SetActive(true);
-
-          // test
-          //audioSource = GetComponent<AudioSource>();
-          // Set AudioClip Parameter in AudioSource Component
-          //audioSource.PlayOneShot(audioSource.clip);
      }
 
      public void CloseOption()

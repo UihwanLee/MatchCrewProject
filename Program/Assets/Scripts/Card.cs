@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class Card : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    public SpriteRenderer front;
+
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+    
+    }
+
+    public void Setting(int number)
+    {
+    front.sprite = Resources.Load<Sprite>(number % 2 == 0 ? "Card_Gayeong" : "Card_LeeHwan");
     }
 }

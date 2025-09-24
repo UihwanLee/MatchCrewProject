@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManagerB : MonoBehaviour
 {
@@ -10,13 +11,19 @@ public class GameManagerB : MonoBehaviour
      public CardB firstCard;
      public CardB secondCard;
 
+     public Text timeTxt;
+     public Text endTxt;
+     public GameObject endPannel;
+
      public AudioClip[] clips; // 0 : matching success, matching fail 
      AudioSource audioSource;
 
-     private int lev = 2;
-     private int cardCount = 0;
+     int lev = 2;
+     int cardCount = 0;
 
-     bool isEnd = false;
+     float time;
+
+     bool isRunning = true;
      bool isClear = false;
 
      void Awake()
@@ -24,11 +31,6 @@ public class GameManagerB : MonoBehaviour
           if (instance == null)
           {
                instance = this;
-               DontDestroyOnLoad(gameObject);
-          }
-          else
-          {
-               Destroy(gameObject);
           }
      }
 
@@ -36,25 +38,38 @@ public class GameManagerB : MonoBehaviour
      void Start()
      {
           audioSource = GetComponent<AudioSource>();
+          
+          time = 15.0f;
+          isRunning = true;
+          isClear = false;
      }
 
      // Update is called once per frame
      void Update()
      {
           // time logic
+          if (isRunning)
+               time -= Time.deltaTime;
 
+          if (time <= 0)
+          {
+               time = 0f;
+               timeTxt.color = Color.red;
+               isClear = false;
+               isRunning = false;
 
+               if (endPannel != null)
+               {
+                    endPannel.GetComponent<Text>().text = "Fail..";
+                    endTxt.text = "Go Title";
+                    endPannel.SetActive(true);
+               }
+          }
 
-
-
-          // stage clear
-          // if lev == 1 || lev == 2
-          // load next scene
-          // else if lev == 3
-          // load end scene
-
-          // stage fail
-          // load fail scene
+          if (timeTxt != null)
+          { 
+               timeTxt.text = time.ToString("N2"); 
+          }
      }
 
      public int GetLevel()
@@ -72,10 +87,15 @@ public class GameManagerB : MonoBehaviour
           cardCount = count;
      }
 
-     public bool GetIsEnd()
+     public bool GetIsRunning()
      {
-          return isEnd;
-     }     
+          return isRunning;
+     }
+
+     public bool GetIsClear()
+     {
+          return isClear;
+     }
 
      public void Matched()
      {
@@ -91,6 +111,7 @@ public class GameManagerB : MonoBehaviour
                if (cardCount == 0)
                {
                     isClear = true;
+                    isRunning = false;
                     EndStage();
                }
           }
@@ -106,6 +127,7 @@ public class GameManagerB : MonoBehaviour
           firstCard = null;
           secondCard = null;
      }
+
 
      void EndStage()
      {
@@ -123,9 +145,8 @@ public class GameManagerB : MonoBehaviour
                return;
           }
 
-          lev++;
-          Debug.Log("stage clear");
-          Debug.Log($"next scene is Stage{lev} Scene");
-          //SceneManager.LoadScene($"Stage{lev}Scene");
+          endPannel.GetComponent<Text>().text = "Clear!";
+          endTxt.text = "Next Stage";
+          endPannel.SetActive(true);
      }
 }

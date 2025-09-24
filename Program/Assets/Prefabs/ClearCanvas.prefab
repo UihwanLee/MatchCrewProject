@@ -637,7 +637,6 @@ GameObject:
   - component: {fileID: 4037752959705933976}
   - component: {fileID: 8046510500336152473}
   - component: {fileID: 8497407108812399098}
-  - component: {fileID: 9016105673963507052}
   m_Layer: 5
   m_Name: Photo_Card
   m_TagString: Untagged
@@ -770,7 +769,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e23e671b4058a3647a6e31c59ee2dbbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 9016105673963507052}
 --- !u!212 &8497407108812399098
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -823,27 +821,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &9016105673963507052
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2971095210546293131}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c1fc6300f72574945bb9b694b6b5b66f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4529911467969592177
 GameObject:
   m_ObjectHideFlags: 0
