@@ -180,7 +180,7 @@ RectTransform:
   m_Father: {fileID: 6446671768079073489}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -233,8 +233,9 @@ GameObject:
   - component: {fileID: 3505236610695750387}
   - component: {fileID: 8997396930827713392}
   - component: {fileID: 378450729904164302}
+  - component: {fileID: 186759589090059984}
   m_Layer: 5
-  m_Name: ExplainText
+  m_Name: LoadingText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -300,7 +301,28 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uBC18\uB824\uACAC\uC73C\uB85C \uAC15\uC544\uC9C0\uB97C \uC88B\uC544\uD55C\uB2E4."
+  m_Text: "\uB85C\uB529\uC911."
+--- !u!95 &186759589090059984
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3192308897521557749}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7967febdd6071834e83a9ab17c16e940, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3566926140185683701
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,7 +356,7 @@ RectTransform:
   m_Father: {fileID: 5893085138227332786}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -394,7 +416,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &491559892096128952
 RectTransform:
   m_ObjectHideFlags: 0
@@ -573,7 +595,7 @@ GameObject:
   - component: {fileID: 3249202124871473327}
   - component: {fileID: 5433378766143644271}
   m_Layer: 5
-  m_Name: SlideImage
+  m_Name: PolaroidImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -784,14 +806,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 276b7384329c7194faddf36d4c94cbc2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -849,3 +871,11 @@ MonoBehaviour:
   loadingScene: {fileID: 3890282263598129072}
   progressBar: {fileID: 8440572022352965628}
   progressText: {fileID: 6922412225766647712}
+  noticeLoadingText: {fileID: 378450729904164302}
+  polaroidImage: {fileID: 5433378766143644271}
+  polaroidSprites:
+  - {fileID: 21300000, guid: baa6f967a85f81b4fa26124f11fb3ac8, type: 3}
+  - {fileID: 21300000, guid: 8b4d03be43810f945b12b7d94115aa61, type: 3}
+  - {fileID: 21300000, guid: 51f08265e0e5f5d42993f001f153b4d6, type: 3}
+  - {fileID: 21300000, guid: b32818354d6d4d8428c06c5680552a76, type: 3}
+  - {fileID: 21300000, guid: 709f6c103c59b63428294db7964dc569, type: 3}
