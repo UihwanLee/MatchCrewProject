@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream:Program/Assets/Resources/Images/ClearPhotoBack.png.meta
 guid: 29532659d2a99e740bad39f182120b7b
+=======
+guid: d2696a6567284d14d8856e595a2a1510
+>>>>>>> Stashed changes:Program/Assets/Resources/Images/background.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
