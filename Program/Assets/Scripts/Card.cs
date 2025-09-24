@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Card : MonoBehaviour
 {
-    int idx = 0;
 
     public SpriteRenderer front;
 
@@ -21,7 +20,7 @@ public class Card : MonoBehaviour
 
     public void Setting(int number)
     {
-        idx = number;
-        Resources.Load<Sprite>($"Card{idx}");
+        front.sprite = Resources.Load<Sprite>($"Card_Gayeong");
+
     }
 }
