@@ -39,7 +39,7 @@ public class CardB : MonoBehaviour
           if (GameManagerB.instance.secondCard != null)
                return;
 
-          if (GameManagerB.instance.GetIsEnd())
+          if (!GameManagerB.instance.GetIsRunning())
                return;
 
           audioSource.Play();
