@@ -21,6 +21,8 @@ public class GalleryManager : MonoBehaviour
     void Start()
     {
         ShowPage(0);                // 시작하면 냅다 여러장 보여줌
+
+        
     }
 
     public void ShowPage(int page)          //int page가 현재 보여주는 page 인데 많아봤자 3장이 될 것

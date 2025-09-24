@@ -14,14 +14,16 @@ public class LoadingManager : MonoBehaviour
     public Slider progressBar;                      // 로딩 진행 바
     public Text progressText;                       // 로딩 퍼센트
     public Text noticeLoadingText;                  // 로딩중 텍스트
-    public Image polaroidImage;                     // 폴라로이드 이미지
 
-    [Header("Team List")]
+    [Header("Polaroid List")]
     public Sprite[] polaroidSprites;                // 폴라로이드 사진 리스트
+    public Image[] polaroidCanvasList;              // 폴라로이드 캔버스 리스트
 
     private bool isLoading;                         // 로딩 확인 변수
-    private int spriteIndex;                        // 리스트 인덱스
 
+    public float slideSpeed = 100.0f;               // 슬라이드 속도
+    private float endPosX = -540f;                  // 끝점
+    private float offset = 2700f;                   // offset
 
     private void Awake()
     {
@@ -42,29 +44,36 @@ public class LoadingManager : MonoBehaviour
         // 변수 초기화
         isLoading = false;
         loadingScene.SetActive(false);
-
-        // 폴라로이드 변경 함수 Invoke
-        spriteIndex = 0;
-        InvokeRepeating("LoadingAnim", 0f, 1f);
     }
 
-    // 폴라로이드 사진 슬라이드 애니메이션 플레이
-    public void LoadingAnim()
+    private void Update()
     {
-        // 리스트 예외처리
-        if (polaroidSprites == null) return;
+        SlideAnim();
+    }
 
-        // 인덱스 맞추기
-        spriteIndex = (spriteIndex == 0) ? 0 : spriteIndex % polaroidSprites.Length;
+    // 슬라이드 애니메이션을 위한 배치
+    public void SetSlideAnim()
+    {
+        for (int i = 0; i < polaroidCanvasList.Length; i++)
+        {
+            polaroidCanvasList[i].sprite = polaroidSprites[i];
+        }
+    }
 
-        // 폴라로이드 사진 변경
-        polaroidImage.sprite = polaroidSprites[spriteIndex];
+    // 슬라이드 애니메이션
+    public void SlideAnim()
+    {
+        foreach(var canvas in polaroidCanvasList)
+        {
+            // 기본적으로 슬라이드 상태
+            canvas.gameObject.transform.position += Vector3.left * slideSpeed * Time.deltaTime;
 
-        // 로딩 텍스트 변경
-        noticeLoadingText.text = (spriteIndex % 2 == 0) ? "로딩중.." : "로딩중...";
-
-        // 인덱스 증가
-        spriteIndex++;
+            // 일정 위치까지 이동하면 offset만큼 x증가
+            if (canvas.gameObject.transform.position.x < endPosX)
+            {
+                canvas.gameObject.transform.position += new Vector3(offset, 0f, 0f);
+            }
+        }    
     }
 
     // Scene 인덱스로 로딩
@@ -90,8 +99,9 @@ public class LoadingManager : MonoBehaviour
         // 로딩화면 활성화
         if (loadingScene != null) loadingScene.SetActive(true);
 
-        // 로딩 사진 셔플
-        polaroidSprites = polaroidSprites.OrderBy(x=>Random.Range(0, 3)).ToArray();
+        // 로딩 사진 셔플 및 배치
+        polaroidSprites = polaroidSprites.OrderBy(x => Random.Range(0, 3)).ToArray();
+        SetSlideAnim();
 
         // 로딩 시작
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
@@ -117,11 +127,13 @@ public class LoadingManager : MonoBehaviour
             if (progressText != null)
                 progressText.text = percentage.ToString("0") + "%";
 
+            // 로딩 텍스트 변경
+            noticeLoadingText.text = ((percentage / 20)%2 == 0) ? "로딩중.." : "로딩중...";
+
             yield return null;
         }
 
         // 로딩 다 끝나면 로딩 화면 비활성화
         if(loadingScene != null) loadingScene.SetActive(false);
     }
-
 }
