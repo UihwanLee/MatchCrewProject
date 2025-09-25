@@ -24,8 +24,12 @@ public class FailTextAnim : MonoBehaviour
 
     public Button RetryButton;                  // Retry 버튼
 
-    private void Start()
+    private float fivot_letter = -200.0f;       // 글자 위치 pivot
+    private float offset_letter = 80.0f;        // 글자 위치 offset
+
+    private void Awake()
     {
+        // 오디오 초기화
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -43,7 +47,10 @@ public class FailTextAnim : MonoBehaviour
             // 처음에는 투명하게 세팅
             Color orginColor = letters[i].color;
             letters[i].color = new Color(orginColor.r, orginColor.g, orginColor.b, 0f);
+
+            // 위치 세팅
             RectTransform rectTransform = letters[i].GetComponent<RectTransform>();
+            rectTransform.anchoredPosition = new Vector2((fivot_letter + (offset_letter * i)), 0f);
             rectTransform.anchoredPosition += new Vector2(0f, moveDistance);
             rectTransform.localRotation = Quaternion.identity;
 
