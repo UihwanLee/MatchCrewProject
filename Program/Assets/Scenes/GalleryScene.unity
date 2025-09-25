@@ -1205,6 +1205,7 @@ MonoBehaviour:
   - "\uC544\uC9C1 \uC120\uAE00\uB77C\uC2A4\uB97C \uC548\uC0AC\uAE34\uD588\uB2E4..."
   - "\uC790\uC138\uD788 \uBCF4\uBA74 \uADC0\uB97C \uB2E4\uCE5C \uAC83 \uAC19\uB2E4...!"
   - "match crew!! \uC6B0\uB9AC\uB294 \uC880 \uC798 \uB9DE\uC544!"
+  - "\uBAA8\uB450\uBAA8\uC5EC match crew!!!"
   detailImage: {fileID: 435343092}
   detailText: {fileID: 617506304}
 --- !u!114 &1299668752
