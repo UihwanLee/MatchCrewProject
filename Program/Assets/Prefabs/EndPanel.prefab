@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 6794221329912182802}
   - component: {fileID: 6251464800316370909}
   m_Layer: 5
-  m_Name: EndPannel
+  m_Name: EndPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

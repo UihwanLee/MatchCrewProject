@@ -31,7 +31,7 @@ public class CardB : MonoBehaviour
      public void Setting(int number)
      {
           index = number;
-          frontImage.sprite = Resources.Load<Sprite>($"Images\\front{index}");
+          frontImage.sprite = Resources.Load<Sprite>($"front{index}");
      }
 
      public void OpenCard()
