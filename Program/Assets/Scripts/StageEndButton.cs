@@ -22,9 +22,11 @@ public class StageEndButton : MonoBehaviour
           {
                // load ending scene
                Debug.Log("game clear");
+            GameManagerB.instance.SetLevel(1);
             ClearCanvas.gameObject.SetActive(true);
            
-               //GameManagerB.instance.SetLevel(1);
+                              
+
           }
           else
           {
