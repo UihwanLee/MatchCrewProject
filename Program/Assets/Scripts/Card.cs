@@ -14,7 +14,7 @@ public class Card : MonoBehaviour
     public void Setting(int number)
     {
         num = number % 2;
-        frontImage.sprite = Resources.Load<Sprite>(num == 0 ? "Card_Gayeong" : "Card_LeeHwan");
+        frontImage.sprite = Resources.Load<Sprite>(num == 0 ? "Card2" : "Card3");
     }
 
     public void OpenCard()
