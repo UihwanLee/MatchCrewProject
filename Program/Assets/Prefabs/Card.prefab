@@ -370,10 +370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe50032253d31402dbf817992b0bc9dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  front: {fileID: 7815548065633480267}
-  back: {fileID: 6156872996217301502}
-  anim: {fileID: 410661802874563730}
-  frontImage: {fileID: 1870236186688978404}
+  front: {fileID: 1870236186688978404}
 --- !u!95 &410661802874563730
 Animator:
   serializedVersion: 5
