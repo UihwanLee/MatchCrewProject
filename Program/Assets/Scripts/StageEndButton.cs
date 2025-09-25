@@ -9,7 +9,9 @@ public class StageEndButton : MonoBehaviour
      {
           if (!GameManagerB.instance.GetIsClear())
           {
-               LoadingManager.Instance.LoadScene("StartScene");
+               GameManagerB.instance.SetLevel(1);
+               SceneManager.LoadScene("StartScene");
+               //LoadingManager.Instance.LoadScene("StartScene");
                return;
           }
 
@@ -24,7 +26,8 @@ public class StageEndButton : MonoBehaviour
           {
                // load next stage scene
                //lev++;
-               LoadingManager.Instance.LoadScene($"Stage{lev}Scene");
+               SceneManager.LoadScene($"Stage{lev}Scene");
+               //LoadingManager.Instance.LoadScene($"Stage{lev}Scene");
           }
      }
 }

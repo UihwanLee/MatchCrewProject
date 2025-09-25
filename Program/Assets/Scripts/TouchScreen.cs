@@ -9,7 +9,7 @@ public class TouchScreen : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            SceneManager.LoadScene("StartScene");
+            SceneManager.LoadScene("StartScene");// 마우스 클릭시 스타스씬으로 넘어감
         }
     }
 }

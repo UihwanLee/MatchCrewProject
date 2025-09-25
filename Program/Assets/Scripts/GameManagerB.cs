@@ -13,7 +13,7 @@ public class GameManagerB : MonoBehaviour
 
      public Text timeTxt;
      public Text endTxt;
-     public GameObject endPannel;
+     public GameObject endPanel;
 
      public AudioClip[] clips; // 0 : matching success, matching fail 
      AudioSource audioSource;
@@ -39,7 +39,8 @@ public class GameManagerB : MonoBehaviour
      {
           audioSource = GetComponent<AudioSource>();
           
-          time = 15.0f;
+          //time = 15.0f;
+          time = 30.0f;
           isRunning = true;
           isClear = false;
      }
@@ -51,6 +52,7 @@ public class GameManagerB : MonoBehaviour
           if (isRunning)
                time -= Time.deltaTime;
 
+          // time over
           if (time <= 0)
           {
                time = 0f;
@@ -58,12 +60,7 @@ public class GameManagerB : MonoBehaviour
                isClear = false;
                isRunning = false;
 
-               if (endPannel != null)
-               {
-                    endPannel.GetComponent<Text>().text = "Fail..";
-                    endTxt.text = "Go Title";
-                    endPannel.SetActive(true);
-               }
+               EndStage();
           }
 
           if (timeTxt != null)
@@ -131,22 +128,17 @@ public class GameManagerB : MonoBehaviour
 
      void EndStage()
      {
-          if (!isClear)
+          if (isClear)
           {
-               Debug.Log("stage fail");
-               // load start scene or fail scene
-               return;
+               endPanel.GetComponent<Text>().text = "Clear!";
+               endTxt.text = "Next Stage";
+          }
+          else
+          {
+               endPanel.GetComponent<Text>().text = "Fail..";
+               endTxt.text = "Go Title";
           }
 
-          if (lev == 3)
-          {
-               // load end scene
-               Debug.Log("game clear");
-               return;
-          }
-
-          endPannel.GetComponent<Text>().text = "Clear!";
-          endTxt.text = "Next Stage";
-          endPannel.SetActive(true);
+          endPanel.SetActive(true);
      }
 }

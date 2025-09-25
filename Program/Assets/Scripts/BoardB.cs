@@ -72,7 +72,6 @@ public class BoardB : MonoBehaviour
                float y = (i % 3) * distance - 2.8f;
 
                go.transform.position = new Vector3(x, y, 0);
-
                go.GetComponent<CardB>().Setting(arr[i]);
           }
 
