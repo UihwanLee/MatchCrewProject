@@ -70,7 +70,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b32818354d6d4d8428c06c5680552a76, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e90f3eecbe1aba8419390ad7ed157ada, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -415,7 +415,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 709f6c103c59b63428294db7964dc569, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9c380c00f3e0e364ca071ddab50649fb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -637,6 +637,7 @@ GameObject:
   - component: {fileID: 4037752959705933976}
   - component: {fileID: 8046510500336152473}
   - component: {fileID: 8497407108812399098}
+  - component: {fileID: 6858423825540507027}
   m_Layer: 5
   m_Name: Photo_Card
   m_TagString: Untagged
@@ -821,6 +822,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &6858423825540507027
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2971095210546293131}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c1fc6300f72574945bb9b694b6b5b66f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4529911467969592177
 GameObject:
   m_ObjectHideFlags: 0
@@ -1116,7 +1138,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: baa6f967a85f81b4fa26124f11fb3ac8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cb332aec07f80af41ada031e02bcd454, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1742,7 +1764,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 51f08265e0e5f5d42993f001f153b4d6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b01f9addda043e74fb1b768deae458f8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1929,7 +1951,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8b4d03be43810f945b12b7d94115aa61, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bb88c0300e2cf964c95ce696adaa93bf, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
