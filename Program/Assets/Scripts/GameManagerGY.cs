@@ -27,6 +27,12 @@ public class GameManager : MonoBehaviour
     {
         time += Time.deltaTime;
         timeTxt.text = time.ToString("N2");
+
+        if (GameObject.Find("Card(Clone)")== null)
+        {
+            GameManagerB.instance.isClear = true;
+            GameManagerB.instance.EndStage();
+        }
     }
 
     public void Matched()

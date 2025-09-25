@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class StageEndButton : MonoBehaviour
 {
+    public Canvas ClearCanvas;
      public void LoadNextScene()
      {
           if (!GameManagerB.instance.GetIsClear())
@@ -21,7 +22,9 @@ public class StageEndButton : MonoBehaviour
           {
                // load ending scene
                Debug.Log("game clear");
-               GameManagerB.instance.SetLevel(1);
+            ClearCanvas.gameObject.SetActive(true);
+           
+               //GameManagerB.instance.SetLevel(1);
           }
           else
           {

@@ -10,7 +10,10 @@ public class Card : MonoBehaviour
 
 
     public int num;
-    
+    private void Start()
+    {
+        frontImage = GetComponent<SpriteRenderer>();    
+    }
     public void Setting(int number)
     {
         num = number % 2;
@@ -28,6 +31,7 @@ public class Card : MonoBehaviour
       {
           //firstCard에 내 정보를 넘겨준다.
           GameManager.Instance.firstCard = this;
+          
       }
 
 
@@ -36,8 +40,10 @@ public class Card : MonoBehaviour
       {
           //secondCard에 내 정보를 넘겨준다.
           GameManager.Instance.secondCard = this;
+         
           //Matched함수를 호출해준다.
           GameManager.Instance.Matched();
+          
       }
     }
     

@@ -26,7 +26,7 @@ public class GameManagerB : MonoBehaviour
      float time;
 
      bool isRunning = true;
-     bool isClear = false;
+     public bool isClear = false;
 
      void Awake()
      {
@@ -133,7 +133,7 @@ public class GameManagerB : MonoBehaviour
           secondCard = null;
      }
 
-     void EndStage()
+     public void EndStage()
      {
           if (isClear)
           {

@@ -48,7 +48,8 @@ public class BoardB : MonoBehaviour
           Invoke($"CardSetting{lev}", 0f);
      }
 
-     void CardSetting1()
+
+    void CardSetting1()
      {
           for (int i = 0; i < 4; i++)
           {

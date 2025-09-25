@@ -1,6 +1,7 @@
 
-using UnityEngine;
 using System.Linq;
+using Unity.Burst.Intrinsics;
+using UnityEngine;
 
 public class Board : MonoBehaviour
 {
@@ -24,8 +25,13 @@ public class Board : MonoBehaviour
 
             Debug.Log(arr[i]);
         }
+
         
+
     }
+ 
+
+
 
 }
         
