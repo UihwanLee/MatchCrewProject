@@ -19,9 +19,22 @@ public class FailTextAnim : MonoBehaviour
     public float moveDistance = 60f;            // 내려오는 거리
     public float rotationAngle = 10.0f;         // 회전 각도
 
+    public AudioClip sfx_fail;                  // 실패 사운드
+    public AudioSource audioSource;             // 오디오 소스
+
+    public Button RetryButton;                  // Retry 버튼
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     // Start is called before the first frame update
     void OnEnable()
     {
+        // Retry 버튼 상태 초기화
+        RetryButton.GetComponent<Animator>().SetBool("isAnimDone", false);
+
         float delay = 0f;
 
         // 코루틴을 사용하여 한 글자 씩 내려가는 연출 구현
@@ -39,6 +52,10 @@ public class FailTextAnim : MonoBehaviour
 
             StartCoroutine(PlayFailAnimation(letters[i], i * delay, rectTransform, orginColor));
         }
+
+        // 실패 효과음 재생
+        audioSource.clip = sfx_fail;
+        audioSource.Play();
     }
 
     private IEnumerator PlayFailAnimation(Image letter, float delay, RectTransform rectTransform, Color orginColor)
@@ -71,5 +88,10 @@ public class FailTextAnim : MonoBehaviour
 
             yield return null;
         }
+
+        //yield return new WaitForSeconds(3f);
+
+        // Retry 버튼 애니메이션 상태 변경
+        RetryButton.GetComponent<Animator>().SetBool("isAnimDone", true);
     }
 }
