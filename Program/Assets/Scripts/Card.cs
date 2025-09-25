@@ -1,25 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Card : MonoBehaviour
 {
 
-    public SpriteRenderer front;
+    public GameObject front;
+    public GameObject back;
 
-    void Start()
-    {
+    public Animator anim;
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+    public SpriteRenderer frontImage;
     
-    }
 
     public void Setting(int number)
     {
-    front.sprite = Resources.Load<Sprite>(number % 2 == 0 ? "Card_Gayeong" : "Card_LeeHwan");
+    frontImage.sprite = Resources.Load<Sprite>(number % 2 == 0 ? "Card_Gayeong" : "Card_LeeHwan");
+    }
+
+    public void OpenCard()
+    {
+        anim.SetBool("isOpen", true);   
+        front.SetActive(true);
+        back.SetActive(false);
     }
 }
