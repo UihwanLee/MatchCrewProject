@@ -7,7 +7,7 @@ public class PushBtn : MonoBehaviour
 {
     public void StartGame()
     {
-        LoadingManager.Instance.LoadScene("Stage1Scene");
+        LoadingManager.Instance.LoadScene("MainScene");
     }
     public void Gallery()
     {

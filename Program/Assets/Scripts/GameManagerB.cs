@@ -139,13 +139,15 @@ public class GameManagerB : MonoBehaviour
           {
                endPanel.GetComponent<Text>().text = "Clear!";
                endTxt.text = "Next Stage";
-          }
+               endPanel.SetActive(true);
+        }
           else
           {
-               endPanel.GetComponent<Text>().text = "Fail..";
-               endTxt.text = "Go Title";
+            //endPanel.GetComponent<Text>().text = "Fail..";
+            //endTxt.text = "Go Title";
+            StageFailManger.instance.StageFail();
           }
 
-          endPanel.SetActive(true);
+          
      }
 }
