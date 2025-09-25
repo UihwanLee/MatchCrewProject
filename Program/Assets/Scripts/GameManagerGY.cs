@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,20 +6,43 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
+    
     public Text timeTxt;
     float time = 0.0f;
-    
 
-    // Start is called before the first frame update
-    void Start()
+    public Card firstCard;
+    public Card secondCard;
+
+
+    private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         time += Time.deltaTime;
         timeTxt.text = time.ToString("N2");
     }
+
+    public void Matched()
+    {
+        if (firstCard == secondCard)
+        {
+            firstCard.DestroyCard();
+            secondCard.DestroyCard();
+        }
+        else
+        {
+            firstCard.CloseCard();
+            secondCard.CloseCard();
+        }
+    }
+    
+   
 }
