@@ -8,6 +8,8 @@ public class GameManagerB : MonoBehaviour
 {
      public static GameManagerB instance;
 
+     const string Level = "Level";
+
      public CardB firstCard;
      public CardB secondCard;
 
@@ -18,7 +20,7 @@ public class GameManagerB : MonoBehaviour
      public AudioClip[] clips; // 0 : matching success, matching fail 
      AudioSource audioSource;
 
-     int lev = 2;
+     //int lev = 1;
      int cardCount = 0;
 
      float time;
@@ -69,14 +71,20 @@ public class GameManagerB : MonoBehaviour
           }
      }
 
+     // if program quits, set stage level1
+     private void OnApplicationQuit()
+     {
+          GameManagerB.instance.SetLevel(1);
+     }
+
      public int GetLevel()
      {
-          return lev;
+          return PlayerPrefs.GetInt(Level, 1);
      }
 
      public void SetLevel(int level)
      {
-          lev = level;
+          PlayerPrefs.SetInt(Level, level);
      }
 
      public void SetCardCount(int count)
@@ -124,7 +132,6 @@ public class GameManagerB : MonoBehaviour
           firstCard = null;
           secondCard = null;
      }
-
 
      void EndStage()
      {

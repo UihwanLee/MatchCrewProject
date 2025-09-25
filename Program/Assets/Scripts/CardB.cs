@@ -22,12 +22,6 @@ public class CardB : MonoBehaviour
           audioSource = GetComponent<AudioSource>();
      }
 
-     // Update is called once per frame
-     void Update()
-     {
-
-     }
-
      public void Setting(int number)
      {
           index = number;

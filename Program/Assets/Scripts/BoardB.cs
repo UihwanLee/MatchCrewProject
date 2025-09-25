@@ -29,6 +29,7 @@ public class BoardB : MonoBehaviour
           {
                case 1:
                     arr = arr1;
+                    distance = 2.5f;
                     break;
                case 2:
                     arr = arr2;
@@ -37,6 +38,7 @@ public class BoardB : MonoBehaviour
                case 3:
                     int[] ints = { 5, 5 };
                     arr = arr1.Concat(arr2).Concat(ints).ToArray(); // lev3
+                    distance = 1.6f;
                     break;
                default:
                     break;
@@ -48,18 +50,19 @@ public class BoardB : MonoBehaviour
 
      void CardSetting1()
      {
-          //for (int i = 0; i < 4; i++)
-          //{
-          
-          //     GameObject go = Instantiate(card, this.transform);
+          for (int i = 0; i < 4; i++)
+          {
+               GameObject go = Instantiate(card, this.transform);
 
-          //     float x = (i % 2) * distance - 1f;
-          //     float y = (i % 2) * distance - 2.8f;
+               float x = (i % 2) * distance - 2.3f;
+               float y = (i / 2) * distance - 2.8f;
 
-          //     go.transform.position = new Vector3(x, y, 0);
-          //}
+               go.transform.position = new Vector3(x, y, 0);
+               go.transform.localScale = new Vector3(1.2f, 1.2f, 0);
+               go.GetComponentInChildren<CardB>().Setting(arr[i]);
+          }
 
-          //GameManagerB.instance.SetCardCount(arr.Length);
+          GameManagerB.instance.SetCardCount(arr.Length);
      }
 
      void CardSetting2()
@@ -68,11 +71,13 @@ public class BoardB : MonoBehaviour
           {
                GameObject go = Instantiate(card, this.transform);
 
-               float x = (i % 2) * distance - 1f;
+               float x = (i % 2) * distance - 1.9f;
                float y = (i % 3) * distance - 2.8f;
 
                go.transform.position = new Vector3(x, y, 0);
-               go.GetComponent<CardB>().Setting(arr[i]);
+               go.transform.localScale = new Vector3(1f, 1f, 0);
+               go.GetComponentInChildren<CardB>().Setting(arr[i]);
+               //go.GetComponent<CardB>().Setting(arr[i]);
           }
 
           GameManagerB.instance.SetCardCount(arr.Length);
@@ -80,17 +85,19 @@ public class BoardB : MonoBehaviour
 
      void CardSetting3()
      {
-          //for (int i = 0; i < 12; i++)
-          //{
-          
-          //     GameObject go = Instantiate(card, this.transform);
+          for (int i = 0; i < 12; i++)
+          {
+               GameObject go = Instantiate(card, this.transform);
 
-          //     float x = (i % 3) * distance - 1f;
-          //     float y = (i % 4) * distance - 2.8f;
+               float x = (i % 3) * distance - 2.2f;
+               float y = (i % 4) * distance - 2.8f;
 
-          //     go.transform.position = new Vector3(x, y, 0);
-          //}
+               go.transform.position = new Vector3(x, y, 0);
+               go.transform.localScale = new Vector3(0.8f, 0.8f, 0);
+               go.GetComponentInChildren<CardB>().Setting(arr[i]);
+          }
 
-          //GameManagerB.instance.SetCardCount(arr.Length);
+          GameManagerB.instance.SetCardCount(arr.Length);
+          Debug.Log("level3");
      }
 }
