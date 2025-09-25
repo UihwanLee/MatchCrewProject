@@ -139,6 +139,6 @@ public class LoadingManager : MonoBehaviour
         }
 
         // 로딩 다 끝나면 로딩 화면 비활성화
-        //if(loadingScene != null) loadingScene.SetActive(false);
+        if(loadingScene != null) loadingScene.SetActive(false);
     }
 }
