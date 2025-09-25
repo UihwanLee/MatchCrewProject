@@ -366,13 +366,14 @@ MonoBehaviour:
   - {fileID: 340835477975293398}
   - {fileID: 1879617640709226684}
   - {fileID: 3692264105523930092}
-  baseDelay: 0.05
-  randomDelay: 0.05
-  fadeDuration: 0.8
+  baseDelay: 0.02
+  randomDelay: 0.03
+  fadeDuration: 0.5
   moveDistance: 60
   rotationAngle: 10
   sfx_fail: {fileID: 8300000, guid: aa41016bea6d2cb4db9ff645317d3b22, type: 3}
   audioSource: {fileID: 5842889020454591697}
+  RetryButton: {fileID: 2548790351316396847}
 --- !u!82 &5842889020454591697
 AudioSource:
   m_ObjectHideFlags: 0
