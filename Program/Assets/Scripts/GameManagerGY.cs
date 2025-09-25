@@ -8,13 +8,14 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     
+    public Card firstCard;
+    public Card secondCard;
+    
+    
     public Text timeTxt;
     float time = 0.0f;
 
-    public Card firstCard;
-    public Card secondCard;
-
-
+    
     private void Awake()
     {
         if (Instance == null)
@@ -32,7 +33,7 @@ public class GameManager : MonoBehaviour
 
     public void Matched()
     {
-        if (firstCard == secondCard)
+        if (firstCard.num == secondCard.num)
         {
             firstCard.DestroyCard();
             secondCard.DestroyCard();
@@ -42,7 +43,10 @@ public class GameManager : MonoBehaviour
             firstCard.CloseCard();
             secondCard.CloseCard();
         }
+
+        firstCard = null;
+        secondCard = null;
     }
-    
-   
+
+
 }

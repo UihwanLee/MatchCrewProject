@@ -6,12 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d61808ae-f15b-4a2d-93ff-50f3841774c1" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Program/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Program/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Card.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Card.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/CardFlip.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/CardFlip.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/CardFlip.anim.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/CardFlip.anim.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/CardIdle.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/CardIdle.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainScene(GY).unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainScene(GY).unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Card.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Card.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Card.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Card.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManagerGY.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManagerGY.cs" afterDir="false" />
     </list>
@@ -114,7 +109,7 @@
       <option name="presentableId" value="Default" />
       <updated>1758714044808</updated>
       <workItem from="1758714047014" duration="5330000" />
-      <workItem from="1758759115588" duration="9524000" />
+      <workItem from="1758759115588" duration="12733000" />
     </task>
     <servers />
   </component>
