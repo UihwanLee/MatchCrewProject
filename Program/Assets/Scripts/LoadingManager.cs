@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class LoadingManager : MonoBehaviour
 {
+    
     public static LoadingManager Instance;
 
     [Header("Loading UI")]
@@ -51,6 +52,7 @@ public class LoadingManager : MonoBehaviour
     private void Update()
     {
         SlideAnim();
+        
     }
 
     // 슬라이드 애니메이션을 위한 배치
@@ -139,6 +141,14 @@ public class LoadingManager : MonoBehaviour
         }
 
         // 로딩 다 끝나면 로딩 화면 비활성화
-        //if(loadingScene != null) loadingScene.SetActive(false);
+
+        this.Invoke("IInvoke",3.0f);
+            
+        
+    }
+    public void IInvoke()
+    {
+        
+       loadingScene.SetActive(false);
     }
 }
