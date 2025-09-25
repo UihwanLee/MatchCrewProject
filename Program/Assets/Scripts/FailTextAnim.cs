@@ -19,6 +19,14 @@ public class FailTextAnim : MonoBehaviour
     public float moveDistance = 60f;            // 내려오는 거리
     public float rotationAngle = 10.0f;         // 회전 각도
 
+    public AudioClip sfx_fail;                  // 실패 사운드
+    public AudioSource audioSource;             // 오디오 소스
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     // Start is called before the first frame update
     void OnEnable()
     {
@@ -39,6 +47,10 @@ public class FailTextAnim : MonoBehaviour
 
             StartCoroutine(PlayFailAnimation(letters[i], i * delay, rectTransform, orginColor));
         }
+
+        // 실패 효과음 재생
+        audioSource.clip = sfx_fail;
+        audioSource.Play();
     }
 
     private IEnumerator PlayFailAnimation(Image letter, float delay, RectTransform rectTransform, Color orginColor)
