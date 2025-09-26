@@ -3,6 +3,9 @@
 ## 미니 프로젝트: 우리 팀원 매칭 카드 게임
 <br>
 
+<img width="495" height="841" alt="Match_Crew_Openning" src="https://github.com/user-attachments/assets/85f92877-061d-43d6-850d-d2a75e172133" />
+
+
 ## 1. 프로젝트 소개
 
 MatchCrew(매치크루)는 팀원들을 소개하고, 간단한 카드 매치 플레이를 통해 스테이지를 클리어하는 게임입니다.
